@@ -14,7 +14,7 @@ After filtering, the signals were down sampled to 20Hz so that the sample rate o
 The rolling mean (window size of 1s) was also removed to reduce the effect of any drift in the signal.
 An example of a processed push-up gyroscope recording is shown (4 sets of 5 reps).
 
-Full signal recorded (x-axis only)
+### Processed Signal Recording (x-axis only)
 
 ![](figures/processed_signal_eg.png)
 
@@ -34,9 +34,14 @@ The periods in which the chosen axis was above it's mean (black line) were selec
 After segmenting the signals, the amplitudes were normalised within each sensor (accelerometer and gyro). 
 This was done so that the model would not rely upon difference in amplitudes, as these are likely to different between people.
 Time periods were Z axis signal is above mean were selected as periods of push-ups.
+
+### Signal segmentaion and labelling
+
+Method to select segments in which the exercise was being completed
+
 ![](figures/rolling_average_absolute.png)
 
-Periods of signal labelled as activity or interval (only X axis shown).
+Segmentation of the signals (x-axis only)
 
 ![](figures/label_selection.png)
 
@@ -71,11 +76,12 @@ The batch size was set to n_samples/10 = 96.
 Epochs was set to 500.
 
 # Model Performance
-The overall accuracy of the model was good, 98%.
-The confusion matrix plot shows the predictions of each target class as a proportion of the total number of targets in that class.
+The overall accuracy of the model was good, 96%.
+The confusion matrix plot shows the predictions as a proportion of the total number of targets in that class.
 This shows each exercise has very good accuracy. 
-Only the interval activity class is around 90%, with some interval predicted as squats or lateral fly.
+The interval activity class is the worse performer ~90%, with some intervals predicted as squats or lateral fly.
 
+### Confusion matrix
 ![](figures/confusion_matrix.png)
 
 # Applying the Model for Activity Detection
@@ -86,12 +92,10 @@ The signals were filtered and down sampled as was done for the training data.
 The model was then applied to 4s rolling windows (normalised as in training)and a class prediction produced for each window.
 This allowed for the detection of periods which were classified as exercises.
 
-Processed signal before classification
-
+### Processed full workout session signal before classification
 ![](figures/raw_session.png)
 
-Classified signal
-
+### Exercises classified within the signal
 ![](figures/signal_class.png)
 
 # Counting Repetitions
@@ -105,7 +109,7 @@ By removing peak frequency * 0.5 allowed for some difference in frequency betwee
 Once the peaks were selected they were simply conted to give the number of reps.
 Along with counting reps, it was also possible to calculate the duration of each activity by taken the time between the start and end of the activity period.
 
-The figure shows selected peaks for each exercise.
+### Signal peak selection for repetition count
 ![](figures/rep_count.png)
 
 # Final Results
