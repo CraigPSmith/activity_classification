@@ -1,6 +1,3 @@
-# Activity Classification
-Using accelerometer/gyroscope signals collected via a smartphone, activities (push-ups, sit-ups etc.) are detected using deep learning (LSTM RNN) and repetitions of each activity counted. 
-This allows for exercises completed during a workout session to be automatically logged without any user input.
 # Data Collection
 3 axis (xyz) linear acceleration and gyroscope signals were collected from a smartphone (Sensor Kinetics Pro app) strapped to the upper left arm.
 Signals were sampled at 200Hz for the linear accelerometer and 400Hz for the gyroscope. 
