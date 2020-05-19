@@ -92,7 +92,7 @@ This allowed for the detection of periods which were classified as exercises.
 ### Processed full workout session signal before classification
 ![](figures/raw_session.png)
 
-### Exercises classified within the signal
+### Exercises classified within the recording
 ![](figures/signal_class.png)
 
 # Counting Repetitions
