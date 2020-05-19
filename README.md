@@ -1,5 +1,5 @@
 # Data Collection
-3 axis (xyz) linear acceleration and gyroscope signals were collected from a smartphone (Sensor Kinetics Pro app) strapped to the upper left arm.
+Linear accelerometer and gyroscope signals (3 axis) were collected from a smartphone (Sensor Kinetics Pro android app) strapped to the upper left arm.
 Signals were sampled at 200Hz for the linear accelerometer and 400Hz for the gyroscope. 
 To collect training data, an activity was repeated (5-20 repetitions), followed by a rest (interval), and then repeated, e.g. 10 push-ups - 30s interval - 10 push-ups - 30s interval - 10 push-ups. 
 Data were collected for 6 different activities; Push-Ups, Squats, Sit-Ups, Star Jumps, Dumbbell Shoulder Press, and Dumbbell Lateral Fly.
