@@ -65,12 +65,12 @@ Finally, the input data was split into train (75%) and test (25%) sets.
 The LSTM model was built using Keras Sequential model. It consisted of a LSTM layer of 100 neurons. 
 Dropout was set at 0.5 for regularization to prevent overfitting.
 A ReLU activation layer was used before the final Softmax activation layer.
-Softmax activation was used as this was a multiclass classification problem and we want the output to be a normalise probability for each activity.
+Softmax activation was used as this was a multiclass classification problem and want the output to be a normalised probability for each activity (probabilites of th activities = 1.
 The activity with the highest probability was taken as the prediction.
 To compare the target probability with the predicted, the categorical cross entropy loss function was used.
 To optimize the model parameters, Adaptive Moment Estimation (ADAM) optimizer was used. 
 The batch size was set to n_samples/10 = 96.
-Epochs was set to 500.
+The trained for 500 Epochs.
 
 # Model Performance
 The overall accuracy of the model was good, 96%.
@@ -130,16 +130,5 @@ The final results table shows each activity in order and how many reps were comp
 
 # Limitations
 The data collected to train and test the model was collected from only 2 people.
-Therefore the model will likely struggle for other people performing the exercises, who may perform them in a different manner (although differences in absolute amplitude between people was controlled for by normalising signal amplitudes). 
+Therefore the model will likely struggle for other people performing the exercises, whom may perform them in a different manner (although differences in absolute amplitude between people was controlled for by normalising signal amplitudes). 
 This could be overcome by collecting data from a larger and varied pool of people. 
-
-The other obvious limitation is that only 6 exercises are included. 
-Because the sensors were attached to the arm, one would imagine it would be difficult to classify activities in which only the legs are moving without any upper body movement (e.g. leg press, cycling).
-However, a way around this may be to include a further sensor from the smartphone which gives information about phone orientation.
-This additional information may be enough to classify these activities.
-
-
-
-
-
-
