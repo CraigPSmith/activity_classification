@@ -96,11 +96,11 @@ This allowed for the detection of periods which were classified as exercises.
 ![](figures/signal_class.png)
 
 # Counting Repetitions
-Now the exercises have been identified within the signals, it is now possible to determine how many repetitions were completed for each activity.
-For each activity, the root mean squared (RMS) of each signal (e.g. XYZ) was calculated to find the signal with most movement contained, as this would be used to count the reps.
+Once the exercises had been identified within the recording, it was then possible to determine how many repetitions were completed for each activity.
+For each activity, the root mean squared (RMS) of each signal (e.g. XYZ) was calculated to find the signal with the most movement contained, as this would be used to count the reps.
 The signal was flipped (*-1) if the mean signal below 0 was > signal above 0 (i.e. the largest movements were negative).
 The peaks were then counted based on the following rules:
-1. The peak threshold had to be above the mean (signal > 0).
+1. The peak had to be > the mean of the positive values.
 2. The distance between peaks had to be > the peak signal frequency - 50%. An FFT was used to determine the peak frequency which provides an approximation of the time between each repetition. 
 By removing peak frequency * 0.5 allowed for some difference in frequency between reps.
 Once the peaks were selected they were simply conted to give the number of reps.
