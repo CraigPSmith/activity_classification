@@ -14,12 +14,12 @@ After filtering, the signals were down sampled to 20Hz so that the sample rate o
 The rolling mean (window size of 1s) was also removed to reduce the effect of any drift in the signal.
 An example of a processed push-up gyroscope recording is shown (4 sets of 5 reps).
 
-
 Full signal recorded (x-axis only)
+
 ![](figures/processed_signal_eg.png)
 
-
 Segment of the above signal (xyz axis)
+
 ![](figures/processed_signal_eg_zoom.png)
 
 # Labelling Training Data
@@ -37,6 +37,7 @@ Time periods were Z axis signal is above mean were selected as periods of push-u
 ![](figures/rolling_average_absolute.png)
 
 Periods of signal labelled as activity or interval (only X axis shown).
+
 ![](figures/label_selection.png)
 
 # Preparing Data For Modelling
@@ -46,7 +47,6 @@ LSTMs have the ability to utilise important information about the sequence of th
 The benefit of LSTMs is that these models allow for multiple time series to be used as inputs (i.e. xyz).
 A Feedforward Neural Network could have been used by extracting features from the signal (e.g. ratio between x and y axis or peak frequency etc.) and using these as inputs.
 Such a model may work just as well, but the advantage of the LSTMs is that there is no need for this feature extraction that may rely on domain knowledge of the signals you are working with, instead you can just input the raw signals.
-
 
 The LSTM takes input data as 3 dimensions. The 1st dimension (i.e. rows) are the number of samples, the 2nd dimension (i.e. columns) are the time points, and the 3rd dimension is the different features (e.g. x axis, y axis etc.). 
 Here, the interval and activity periods were cut into 4s long samples (if what remained of the period  was > 3.8s the remaining 0.2s were padded with zeros to make an extra sample).
@@ -87,9 +87,11 @@ The model was then applied to 4s rolling windows (normalised as in training)and 
 This allowed for the detection of periods which were classified as exercises.
 
 Processed signal before classification
+
 ![](figures/raw_session.png)
 
 Classified signal
+
 ![](figures/signal_class.png)
 
 # Counting Repetitions
